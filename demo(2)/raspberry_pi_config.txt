@@ -1,0 +1,16 @@
+# Raspberry Pi Connection Configuration
+# Edit these values according to your Raspberry Pi setup
+
+# Raspberry Pi hostname or IP address
+# Examples: raspberrypi.local, 192.168.1.100
+HOSTNAME=raspberrypi.local
+
+# SSH username (default is 'pi')
+USERNAME=pi
+
+# SSH password (default is 'raspberry', change this!)
+PASSWORD=raspberry
+
+# SSH port (default is 22)
+PORT=22
+

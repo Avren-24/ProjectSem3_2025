@@ -1,0 +1,20 @@
+# Raspberry Pi Connection Configuration
+# Edit these values according to your Raspberry Pi setup
+
+# Raspberry Pi hostname or IP address
+# IMPORTANT: On Windows, use IP address instead of hostname!
+# Examples: 
+#   - IP address (recommended for Windows): 192.168.1.100
+#   - Hostname (may not work on Windows): raspberrypi.local
+# To find your Pi's IP: run "hostname -I" on Raspberry Pi
+HOSTNAME=raspberrypi
+
+# SSH username (default is 'pi')
+USERNAME=pi
+
+# SSH password (default is 'raspberry', change this!)
+PASSWORD=raspberry
+
+# SSH port (default is 22)
+PORT=22
+

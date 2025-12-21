@@ -39,9 +39,9 @@ class EmailSender:
     """Email sender class for sending humidity alerts"""
     
     def __init__(self, 
-                 sender_email: str = "2303085802@qq.com",
-                 sender_password: str = "nefgniwnwhiadhhi",
-                 recipient_email: str = "2303085802@qq.com",
+                 sender_email: str = "1552038394@qq.com",
+                 sender_password: str = "klrksbuwifxdgcaf",
+                 recipient_email: str = "1552038394@qq.com",
                  smtp_server: str = "smtp.qq.com",
                  smtp_port: int = 587):
         self.sender_email = sender_email

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-湿度传感器模拟脚本
-模拟树莓派Model4B + ADS1115 + 湿度传感器的数据读取
+Humidity Sensor Simulator Script
+Simulates data reading from Raspberry Pi Model 4B + ADS1115 + Humidity Sensor
 """
 
 import time
 import random
 import sys
 
-# ANSI颜色代码
+# ANSI color codes
 class Colors:
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
@@ -21,17 +21,17 @@ class Colors:
     DIM = '\033[2m'
 
 def print_colored(text, color=Colors.RESET):
-    """打印彩色文本"""
+    """Print colored text"""
     print(f"{color}{text}{Colors.RESET}")
 
 def print_header():
-    """打印标题"""
+    """Print header"""
     print("\n" + "="*60)
     print_colored("  Humidity Sensor Data Acquisition System", Colors.BOLD + Colors.CYAN)
     print("="*60 + "\n")
 
 def simulate_connection():
-    """模拟连接过程"""
+    """Simulate connection process"""
     print_colored("[System] Initializing connection...", Colors.YELLOW)
     time.sleep(0.5)
     
@@ -49,18 +49,18 @@ def simulate_connection():
     print()
 
 def print_data_header():
-    """打印数据表头"""
+    """Print data table header"""
     print("-" * 60)
     print(f"{'No.':<8} {'Time':<20} {'Humidity':<15} {'Status':<10}")
     print("-" * 60)
 
 def print_data_row(index, timestamp, humidity, status="OK"):
-    """打印数据行"""
+    """Print data row"""
     status_color = Colors.GREEN if status == "OK" else Colors.RED
     print(f"{index:<8} {timestamp:<20} {Colors.CYAN}{humidity:<15}{Colors.RESET} {status_color}{status:<10}{Colors.RESET}")
 
 def main():
-    """主函数"""
+    """Main function"""
     print_header()
     simulate_connection()
     
@@ -69,18 +69,18 @@ def main():
     
     print_data_header()
     
-    # 生成10组数据
+    # Generate 10 data sets
     for i in range(1, 11):
-        # 生成0.28-0.30之间的随机湿度值
+        # Generate random humidity value between 0.28-0.30
         humidity = round(random.uniform(0.28, 0.30), 4)
         
-        # 获取当前时间戳
+        # Get current timestamp
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         
-        # 打印数据
+        # Print data
         print_data_row(i, timestamp, f"{humidity:.4f}", "OK")
         
-        # 如果不是最后一组，等待1秒
+        # If not the last set, wait 1 second
         if i < 10:
             time.sleep(1)
     

@@ -1,72 +1,71 @@
-# 快速开始指南
+# Quick Start Guide
 
-## 第一步：安装依赖
+## Step 1: Install Dependencies
 
-双击运行 `install_dependencies.bat`，等待安装完成。
+Double-click to run `install_dependencies.bat` and wait for installation to complete.
 
-## 第二步：配置树莓派连接
+## Step 2: Configure Raspberry Pi Connection
 
-编辑 `raspberry_pi_config.txt` 文件：
+Edit the `raspberry_pi_config.txt` file:
 
 ```
-HOSTNAME=192.168.1.100    # 改为你的树莓派IP地址
-USERNAME=pi                # 改为你的SSH用户名
-PASSWORD=your_password     # 改为你的SSH密码
-PORT=22                    # 通常不需要改
+HOSTNAME=192.168.1.100    # Change to your Raspberry Pi IP address
+USERNAME=pi                # Change to your SSH username
+PASSWORD=your_password     # Change to your SSH password
+PORT=22                    # Usually no need to change
 ```
 
-## 第三步：在PyCharm中运行
+## Step 3: Run in PyCharm
 
-1. 打开PyCharm
-2. 打开项目文件夹
-3. 运行 `sensor_reader.py`
-4. 程序会自动连接树莓派并读取10组数据
+1. Open PyCharm
+2. Open the project folder
+3. Run `sensor_reader.py`
+4. The program will automatically connect to Raspberry Pi and read 10 data sets
 
-## 树莓派端准备工作
+## Raspberry Pi Setup
 
-在树莓派上执行以下命令：
+Execute the following commands on Raspberry Pi:
 
 ```bash
-# 1. 启用I2C
+# 1. Enable I2C
 sudo raspi-config
-# 选择: Interfacing Options → I2C → Enable
+# Select: Interfacing Options → I2C → Enable
 
-# 2. 安装I2C工具
+# 2. Install I2C tools
 sudo apt-get update
 sudo apt-get install -y i2c-tools python3-pip
 
-# 3. 安装ADS1115库
+# 3. Install ADS1115 library
 pip3 install Adafruit-ADS1x15
 
-# 4. 检查ADS1115是否连接（应该看到0x48）
+# 4. Check if ADS1115 is connected (should see 0x48)
 i2cdetect -y 1
 
-# 5. 确保SSH已启用
+# 5. Ensure SSH is enabled
 sudo systemctl enable ssh
 sudo systemctl start ssh
 ```
 
-## 硬件连接
+## Hardware Connections
 
-- **ADS1115 → 树莓派**:
+- **ADS1115 → Raspberry Pi**:
   - VDD → 3.3V
   - GND → GND  
-  - SCL → GPIO 3 (物理引脚5)
-  - SDA → GPIO 2 (物理引脚3)
+  - SCL → GPIO 3 (Physical pin 5)
+  - SDA → GPIO 2 (Physical pin 3)
 
-- **湿度传感器 → ADS1115**:
-  - 传感器输出 → A0通道
-  - 传感器电源 → 3.3V或5V
-  - 传感器地 → GND
+- **Humidity Sensor → ADS1115**:
+  - Sensor output → A0 channel
+  - Sensor power → 3.3V or 5V
+  - Sensor ground → GND
 
-## 常见问题
+## Common Issues
 
-**Q: 连接失败怎么办？**
-A: 检查树莓派IP地址、SSH是否启用、防火墙设置
+**Q: What to do if connection fails?**
+A: Check Raspberry Pi IP address, whether SSH is enabled, and firewall settings
 
-**Q: 检测不到ADS1115？**
-A: 运行 `i2cdetect -y 1` 检查，确认I2C已启用
+**Q: ADS1115 not detected?**
+A: Run `i2cdetect -y 1` to check, confirm I2C is enabled
 
-**Q: 读取的数据不对？**
-A: 检查传感器连接，可能需要根据实际传感器调整转换公式
-
+**Q: Data reading incorrect?**
+A: Check sensor connections, may need to adjust conversion formula according to actual sensor

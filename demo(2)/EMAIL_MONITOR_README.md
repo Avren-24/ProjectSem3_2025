@@ -16,10 +16,10 @@ This script monitors humidity levels and automatically sends email alerts when t
 
 The script uses QQ Mail SMTP service with the following default settings:
 
-- **Sender Email**: 2303085802@qq.com
+- **Sender Email**: 1552038394@qq.com
 - **SMTP Server**: smtp.qq.com
 - **SMTP Port**: 587
-- **Recipient**: 2303085802@qq.com
+- **Recipient**: 1552038394@qq.com
 
 You can modify these settings in the `EmailSender` class initialization in `humidity_monitor.py`.
 
